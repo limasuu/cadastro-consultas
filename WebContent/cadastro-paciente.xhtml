@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	 xmlns:h="http://java.sun.com/jsf/html"
+	 xmlns:f="http://java.sun.com/jsf/core">
+	 
+	<h:head>
+	<title>Cadastro de paciente</title>
+	</h:head>
+	<h:body>
+	
+		<h1>Novo paciente</h1>
+		<h:messages/>
+	
+		<h:form>
+			<table>
+			
+				<tr>
+					<td>Nome</td>
+					<td>
+						<h:inputText value="#{cadastrarPacienteMBean.paciente.nome}" required="true" requiredMessage="Nome: Campo obrigatório."/>
+					</td>					
+				</tr>
+				
+				<tr>					
+					<td colspan="2">
+						<h:selectOneRadio value="#{cadastrarPacienteMBean.paciente.genero}" required="true" requiredMessage="Gênero: Campo obrigatório.">
+							<f:selectItem itemLabel="Masculino" itemValue="Masculino"/>
+							<f:selectItem itemLabel="Feminino" itemValue="Feminino"/>
+						</h:selectOneRadio>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>Idade</td>
+					<td>
+						<h:inputText value="#{cadastrarPacienteMBean.paciente.idade}" required="true" requiredMessage="Idade: Campo obrigatório." 
+						validatorMessage="Informe um valor válido!">
+							<f:validateLongRange minimum="0" maximum="135"/>
+						</h:inputText>
+					</td>					
+				</tr>
+			
+				<tr>
+					<td>Endereço</td>
+					<td>
+						<h:inputTextarea value="#{cadastrarPacienteMBean.paciente.endereco}" required="true" requiredMessage="Endereço: Campo obrigatório."/>
+					</td>					
+				</tr>
+			
+				<tr>
+					<td>E-mail</td>
+					<td>
+						<h:inputText value="#{cadastrarPacienteMBean.paciente.email}" required="true" requiredMessage="E-mail: Campo obrigatório.">
+							<f:validator validatorId="validadorEmail"/>
+						</h:inputText>
+					</td>					
+				</tr>
+			
+				<tr>
+					<td>
+						<h:commandButton value="Voltar" action="#{cadastrarPacienteMBean.voltar}"/>
+					</td>
+					<td>
+						<h:commandButton value="Cadastrar" action="#{cadastrarPacienteMBean.cadastrar}"/>
+					</td>					
+				</tr>
+				
+			</table>
+		</h:form>
+	
+	</h:body>
+</html>
