@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	 xmlns:h="http://java.sun.com/jsf/html"
+	 xmlns:f="http://java.sun.com/jsf/core">
+	 
+	<h:head>
+		<title>Cadastro de médico</title>
+	</h:head>
+	<h:body>
+	
+		<h1>Novo médico</h1>
+		<h:messages/>
+		
+		<h:form>
+			<table>
+				
+				<tr>
+					<td>Nome</td>
+					<td>
+						<h:inputText value="#{cadastrarMedicoMBean.medico.nome}" required="true" requiredMessage="Nome: Campo obrigatório."/>
+					</td>
+				</tr>
+				
+				<tr>					
+					<td colspan="2">
+						<h:selectOneRadio value="#{cadastrarMedicoMBean.medico.genero}" required="true" requiredMessage="Gênero: Campo obrigatório.">
+							<f:selectItem itemLabel="Masculino" itemValue="Masculino"/>
+							<f:selectItem itemLabel="Feminino" itemValue="Feminino"/>
+						</h:selectOneRadio>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>CRM</td>
+					<td>
+						<h:inputText value="#{cadastrarMedicoMBean.medico.CRM}" required="true" requiredMessage="CRM: Campo obrigatório."/>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>Especialidade</td>
+					<td>
+						<h:inputText value="#{cadastrarMedicoMBean.medico.especialidade}" required="true" requiredMessage="Especialidade: Campo obrigatório."/>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>Turno</td>
+					<td>
+						<h:inputText value="#{cadastrarMedicoMBean.medico.turno}" required="true" requiredMessage="Turno: Campo obrigatório."/>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<h:commandButton value="Voltar" action="#{cadastrarMedicoMBean.voltar}"/>
+					</td>
+					<td>
+						<h:commandButton value="Cadastrar" action="#{cadastrarMedicoMBean.cadastrar}"/>
+					</td>
+				</tr>
+			
+			</table>		
+		</h:form>
+	
+	</h:body>
+</html>
