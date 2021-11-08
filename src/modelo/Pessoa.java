@@ -4,6 +4,7 @@ public class Pessoa {
 	
 	private String nome;
 	private String genero;	
+	private String CPF;
 	
 	public String getNome() {
 		return nome;
@@ -19,5 +20,13 @@ public class Pessoa {
 	
 	public void setGenero(String genero) {
 		this.genero = genero;
+	}
+	
+	public String getCPF() {
+		return CPF;
+	}
+	
+	public void setCPF(String CPF) {
+		this.CPF = CPF;
 	}
 }

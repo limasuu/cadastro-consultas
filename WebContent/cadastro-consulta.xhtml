@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	
+	<h:head>
+		<title>Consulta</title>
+	</h:head>
+	<h:body>
+	
+		<h1>Nova consulta</h1>
+		<h:messages/>
+		
+		<h:form>
+			<table>
+			
+				<tr>
+					<td>CPF do paciente</td>
+					<td>
+						<h:inputText value="#{cadastrarConsultaMBean.consulta.paciente.CPF}" required="true" requiredMessage="CPF do paciente: Campo obrigatório."/>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>Médico</td>
+					<td>
+						<h:selectOneMenu value="#{cadastrarConsultaMBean.consulta.medico.CRM}">
+							<f:selectItems value="#{cadastrarMedicoMBean.medicos}" var="medico" 
+						itemValue="#{medico.CRM}" itemLabel="#{medico.nome} (#{medico.especialidade})"/>
+						</h:selectOneMenu>
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td>Data</td>
+					<td>
+						<h:inputText value="#{cadastrarConsultaMBean.consulta.data}" required="true" requiredMessage="Data: Campo obrigatório.">
+							<f:convertDateTime pattern="dd/MM/yyyy"/>
+						</h:inputText>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>Horário</td>
+					<td>
+						<h:inputText value="#{cadastrarConsultaMBean.consulta.horario}" required="true" requiredMessage="Horário: Campo obrigatório.">
+							<f:convertDateTime pattern="HH:mm"/>
+						</h:inputText>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<h:commandButton value="Voltar" action="#{cadastrarConsultaMBean.voltar}"/>
+					</td>
+					<td>
+						<h:commandButton value="Cadastrar" action="#{cadastrarConsultaMBean.cadastrar}"/>
+					</td>
+				</tr>
+			
+			</table>
+		</h:form>
+	
+	</h:body>
+</html>
