@@ -15,12 +15,11 @@ import modelo.Paciente;
 public class CadastrarPacienteMBean {
 
 	private Paciente paciente;
-	private List<Paciente> pacientes;
+	private static List<Paciente> pacientes= new ArrayList<Paciente>();
 	
 	public CadastrarPacienteMBean() {
 		
-		paciente= new Paciente();
-		pacientes= new ArrayList<Paciente>();
+		paciente= new Paciente();		
 	}
 	
 	public String entrarCadastro() {
@@ -54,7 +53,7 @@ public class CadastrarPacienteMBean {
 		this.paciente = paciente;
 	}
 
-	public List<Paciente> getPacientes() {
+	public static List<Paciente> getPacientes() {
 		return pacientes;
 	}
 

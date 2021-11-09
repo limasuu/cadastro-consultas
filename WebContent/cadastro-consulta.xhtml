@@ -19,7 +19,9 @@
 				<tr>
 					<td>CPF do paciente</td>
 					<td>
-						<h:inputText value="#{cadastrarConsultaMBean.consulta.paciente.CPF}" required="true" requiredMessage="CPF do paciente: Campo obrigatório."/>
+						<h:inputText value="#{cadastrarConsultaMBean.consulta.paciente.CPF}" required="true" requiredMessage="CPF do paciente: Campo obrigatório.">
+							<f:validator validatorId="validadorPaciente"/>
+						</h:inputText>
 					</td>
 				</tr>
 				
