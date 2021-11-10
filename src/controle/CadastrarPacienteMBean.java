@@ -15,33 +15,41 @@ import modelo.Paciente;
 public class CadastrarPacienteMBean {
 
 	private Paciente paciente;
-	private static List<Paciente> pacientes= new ArrayList<Paciente>();
-	
+	private List<Paciente> pacientes;
+	public static List<Paciente> listagem= new ArrayList<Paciente>();
+
 	public CadastrarPacienteMBean() {
-		
-		paciente= new Paciente();		
+
+		paciente= new Paciente();	
+		pacientes= new ArrayList<Paciente>();
 	}
-	
+
 	public String entrarCadastro() {
-		
+
 		return "/cadastro-paciente.jsf";
 	}
-	
+
 	public String voltar() {
-		
+
 		return "/index.jsf";
 	}
-	
+
+	public String listar() {
+
+		return "/lista-pacientes.jsf";
+	}
+
 	public String cadastrar() {
-		
+
 		pacientes.add(paciente);
+		listagem.add(paciente);
 		paciente= new Paciente();
-		
+
 		FacesMessage msg= new FacesMessage("Paciente cadastrado com sucesso!");
 		msg.setSeverity(FacesMessage.SEVERITY_INFO);
-		
+
 		FacesContext.getCurrentInstance().addMessage("", msg);
-		
+
 		return "/cadastro-paciente.jsf";
 	}
 
@@ -53,11 +61,12 @@ public class CadastrarPacienteMBean {
 		this.paciente = paciente;
 	}
 
-	public static List<Paciente> getPacientes() {
+	public List<Paciente> getPacientes() {
 		return pacientes;
 	}
 
 	public void setPacientes(List<Paciente> pacientes) {
 		this.pacientes = pacientes;
-	}
+		listagem= pacientes;
+	}	
 }

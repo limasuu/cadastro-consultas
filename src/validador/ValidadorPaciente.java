@@ -19,7 +19,7 @@ public class ValidadorPaciente implements Validator{
 		String CPF= objeto.toString();
 		boolean cadastrado= false;
 		
-		for(Paciente paciente : CadastrarPacienteMBean.getPacientes())
+		for(Paciente paciente : CadastrarPacienteMBean.listagem)
 			if(paciente.getCPF().equals(CPF)) {
 				cadastrado= true;
 				break;
