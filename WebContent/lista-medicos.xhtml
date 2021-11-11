@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	
+	<h:head>
+		<title>Médicos</title>
+	</h:head>
+	
+	<h:body>
+	
+		<h1>Lista de médicos</h1>
+		
+		<h:form>
+			<h:dataTable value="#{cadastrarMedicoMBean.medicos}" var="medico">
+			
+				<h:column>
+					<f:facet name="header">Nome</f:facet>
+					#{medico.nome}
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Gênero</f:facet>
+					#{medico.genero}
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">CPF</f:facet>
+					#{medico.CPF}
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">CRM</f:facet>
+					#{medico.CRM}
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Especialidade</f:facet>
+					#{medico.especialidade}
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Turno</f:facet>
+					#{medico.turno}
+				</h:column>
+			
+			</h:dataTable>	
+			<h:commandLink value="Voltar" action="#{cadastrarMedicoMBean.entrarCadastro}"/><br/>
+				
+		</h:form>
+	
+	</h:body>
+
+</html>

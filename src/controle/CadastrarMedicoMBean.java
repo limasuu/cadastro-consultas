@@ -13,36 +13,41 @@ import modelo.Medico;
 @ManagedBean
 @SessionScoped
 public class CadastrarMedicoMBean {
-	
+
 	private Medico medico;
 	private List<Medico> medicos;
-	
+
 	public CadastrarMedicoMBean() {
-		
+
 		medico= new Medico();
 		medicos= new ArrayList<Medico>();
 	}
-	
+
 	public String entrarCadastro() {
-		
+
 		return "/cadastro-medico.jsf";
 	}
-	
+
 	public String voltar() {
-		
+
 		return "/index.jsf";
 	}
-	
+
+	public String listar() {
+
+		return "/lista-medicos.jsf";
+	}
+
 	public String cadastrar() {
-		
+
 		medicos.add(medico);
 		medico= new Medico();
-		
+
 		FacesMessage msg= new FacesMessage("Médico cadastrado com sucesso!");
 		msg.setSeverity(FacesMessage.SEVERITY_INFO);
-		
+
 		FacesContext.getCurrentInstance().addMessage("", msg);
-		
+
 		return "/cadastro-medico.jsf"; 
 	}
 
