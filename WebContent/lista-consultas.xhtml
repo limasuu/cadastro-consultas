@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	 xmlns:h="http://java.sun.com/jsf/html"
+	 xmlns:f="http://java.sun.com/jsf/core">
+	 
+	 <h:head>
+	 	<title>Consultas</title>
+	 </h:head>
+
+	<h:body>
+		
+		<h1>Lista de consultas</h1>
+		
+		<h:form>
+			<h:dataTable var="consulta" value="#{cadastrarConsultaMBean.consultas}">
+			
+				<h:column>
+					<f:facet name="header">Data</f:facet>
+					<h:outputText value="#{consulta.data}">
+						<f:convertDateTime pattern="dd/MM/yyyy"/>
+					</h:outputText>									
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Horário</f:facet>
+					<h:outputText value="#{consulta.horario}">
+						<f:convertDateTime pattern="HH:mm"/>
+					</h:outputText>
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Paciente</f:facet>
+					#{consulta.paciente.nome}
+				</h:column>
+			
+				<h:column>
+					<f:facet name="header">Médico</f:facet>
+					#{consulta.medico.nome}
+				</h:column>
+			
+			</h:dataTable>
+			<h:commandLink value="Voltar" action="#{cadastrarConsultaMBean.entrarCadastro}"/><br/>
+			
+		</h:form>
+		
+	</h:body>
+</html>
